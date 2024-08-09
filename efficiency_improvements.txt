@@ -1,0 +1,8 @@
+Optimisations to be considered to improve efficiency:
+
+- Utilising JavaScript for frontend while maintaining Flask as backend
+    ==> JavaScript has frameworks like React for easier and faster development.
+	==> Tailwind CSS can also be used with JavaScript for easier UI building.
+	
+- Using Apache Airflow to schedule tasks
+    ==> It allows parallelism in task execution for better resource utilisation.

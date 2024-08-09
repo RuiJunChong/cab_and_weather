@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Data Table</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='styles.css') }}"
+    />
+  </head>
+  <body>
+    <h1>{{data['title']}}</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>Hour</th>
+          <th>Trip Count</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for row in data['table_data'] %}
+        <tr>
+          <td>{{ row['hour'] }}</td>
+          <td>{{ row['count'] }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </body>
+</html>

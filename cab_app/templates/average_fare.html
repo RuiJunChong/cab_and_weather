@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Data Table</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='styles.css') }}"
+    />
+  </head>
+  <body>
+    <h1>{{data['title']}}</h1>
+    <p>
+      The <b>cheapest hour</b> on average is:
+      <mark><b>{{ data['cheapest'][0] }}</b></mark> with an average fare amount
+      of <mark><b>$ {{ data['cheapest'][1] }}</b></mark>
+    </p>
+    <p>
+      Here is the average fare amount for each hour of the day from pickup
+      location ID <b>"{{data["location"][0]}}"</b> to dropoff location ID
+      <b>"{{data["location"][1]}}"</b>:
+    </p>
+    <table>
+      <thead>
+        <tr>
+          <th>Hour</th>
+          <th>Average Fare Amount ($)</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for row in data['table_data'] %}
+        <tr>
+          <td>{{ row['hour'] }}</td>
+          <td>{{ row['average_fare'] }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </body>
+</html>
